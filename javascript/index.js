@@ -1,25 +1,34 @@
-var slideIndex = 1;
-            showSlides(slideIndex);
+           "use strict";
+         
+           var slideIndex = 1;
+           var timer=0;
+           autoSlide();     
+            
     
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
+            function plusSlides(delta) {
+                showSlides(slideIndex = slideIndex+delta); 
             }
     
-    
-            function showSlides(n) {
+            function showSlides(slidenummer) {
                 var i;
                 var slides = document.getElementsByClassName("mySlides");
-                if (n > slides.length) {slideIndex = 1}
-                if (n < 1) {slideIndex = slides.length}
+                if (timer) {
+                    clearTimeout(timer);
+                    timer=0;
+                    --slideIndex;
+                }
+   
+                if (slidenummer > slides.length) {slideIndex = 1}
+                if (slidenummer < 1) {slideIndex = slides.length}
                 for (i = 0; i < slides.length; i++) {
                     slides[i].style.display = "none";
                 }
-                slides[slideIndex-1].style.display = "block";              
+                slides[slideIndex-1].style.display = "block"; 
             }
 
-            autoSlide();
+            
             function autoSlide() {
-                var i;
+                var i=0;
                 var slides = document.getElementsByClassName("mySlides");
                 for (i = 0; i < slides.length; i++) {
                     slides[i].style.display = "none";
@@ -27,8 +36,9 @@ var slideIndex = 1;
                 if(slideIndex > slides.length) {slideIndex = 1}
                 slides[slideIndex-1].style.display = "block"; 
                 slideIndex++;
-                setTimeout(autoSlide,2000)  
+                timer = setTimeout(autoSlide,2000)  
             }
+
             window.addEventListener('keyup', (e) => {
                 console.log(e.key);
                 if(e.key == "ArrowLeft") {
@@ -39,12 +49,16 @@ var slideIndex = 1;
                 }
             });
 
-            function play(){
-                startInterval(startInterval, 2000);
-            }
+         function pauze() {
+             if (timer) {
+                 clearTimeout(timer);
+                 timer=0;
+             }
 
-            function pause(){
-                endInterval(endInterval);                
-            }
+         }
 
-           
+         function play() {
+            if (!timer) {
+             autoSlide();
+            }
+         }
