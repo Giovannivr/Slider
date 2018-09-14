@@ -2,40 +2,52 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Slides</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <title>Address Book</title>
+    <link rel="stylesheet" href="../scss/index.css">
+    <link rel="stylesheet" href="../scss/index.scss">
 </head>
 
 <body>
 
-    <div class="container">
-        <section class="section">
-                <div class="mySlides">
-                    <img src="../image/meganfox.jpg" width="400px" height="300px" onclick="changeImage()" alt="Megan Fox">
-                </div>
+    <div class="adress">
 
-                <div class="mySlides">
-                    <img src="../image/joker.jpg" width="400px" height="300px" onclick="changeImage()" alt="Joker">
-                </div>
+        <h1>Contact</h1>
+        
+        <div class="adress__content">
+            <button class="button__gegevens" onclick="Name('a')">A</button>
+            <button class="button__gegevens" onclick="Name('b')">B</button>
+            <button class="button__gegevens" onclick="Name('c')">C</button>
+            <button class="button__gegevens" onclick="Name('d')">D</button>
+            <button class="button__gegevens" onclick="Name('e')">E</button>
+            <button class="button__gegevens" onclick="Name('f')">F</button>
+            <button class="button__gegevens" onclick="Name('g')">G</button>
+            <button class="button__gegevens" onclick="Name('h')">H</button>
+            <button class="button__gegevens" onclick="Name('i')">I</button>
+            <button class="button__gegevens" onclick="Name('j')">J</button>
+            <button class="button__gegevens" onclick="Name('k')">K</button>
+            <button class="button__gegevens" onclick="Name('l')">L</button>
+            <button class="button__gegevens" onclick="Name('m')">M</button>
+            <button class="button__gegevens" onclick="Name('n')">N</button>
+            <button class="button__gegevens" onclick="Name('o')">O</button>
+            <button class="button__gegevens" onclick="Name('p')">P</button>
+            <button class="button__gegevens" onclick="Name('q')">Q</button>
+            <button class="button__gegevens" onclick="Name('r')">R</button>
+            <button class="button__gegevens" onclick="Name('s')">S</button>
+            <button class="button__gegevens" onclick="Name('t')">T</button>
+            <button class="button__gegevens" onclick="Name('u')">U</button>
+            <button class="button__gegevens" onclick="Name('v')">V</button>
+            <button class="button__gegevens" onclick="Name('w')">W</button>
+            <button class="button__gegevens" onclick="Name('x')">X</button>
+            <button class="button__gegevens" onclick="Name('y')">Y</button>
+            <button class="button__gegevens" onclick="Name('z')">Z</button> 
+        </div>
 
-                <div class="mySlides">
-                    <img src="../image/vendetta.png" width="400px" height="300px" onclick="changeImage()" alt="Vendetta">
-                </div>
-                
-                <div class="slides__prev">
-                    <a class="prev" onclick="plusSlides(-1)">❮</a>
-                </div>
-
-                <div class="slides__next">
-                    <a class="next" onclick="plusSlides(1)">❯</a> 
-                </div>
-                
-                <div class="slides__button">
-                    <button class="play" onclick="play()">Play</button>  
-                    <button class="pause" onclick="pauze()">Pause</button>  
-                </div>
-        </section>
-    
+    </div>
+    <div class="wrapper">
+            <table id="example">
+            </table>
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../javascript/index.js"></script>
 </body>
 </html>

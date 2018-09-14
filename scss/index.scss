@@ -1,0 +1,55 @@
+.adress{
+    width: 8%;
+    background-color: lightgrey;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+   
+    &__content{
+      border-top: 1px solid black;
+      display: flex;
+      flex-direction: column;
+  }
+}
+.button__gegevens {
+    background-color: lightgrey;
+  
+  &:hover {
+    background-color: gray;
+  }
+}
+  .wrapper {
+    font-family: Roboto;
+    width: 900px;
+    max-width: 100%;
+    margin: auto;
+    margin-top: -30%;
+    background-color: lightgrey;
+  }
+  
+  table {
+    width: 100%;
+    border-spacing: 0;
+  }
+  table th {
+    text-align: left;
+    border-bottom: 1px solid black;
+  }
+  @media only screen and (max-width: 40em) {
+    table th {
+      display: none;
+    }
+  }
+  table tr td:first-of-type {
+    font-weight: bold;
+  }
+  @media only screen and (max-width: 40em) {
+    table td {
+      display: block;
+    }
+    table td:not(:first-of-type) {
+      margin-left: 2px;
+    }
+  }
+  
+  

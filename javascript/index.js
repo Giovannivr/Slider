@@ -1,64 +1,59 @@
-           "use strict";
-         
-           var slideIndex = 1;
-           var timer=0;
-           autoSlide();     
-            
+/* 
+-Get things
+
+button--check data
+div with data of the person
+div with the name and a button of a person
+
+-Listen to things
+
+
+
+-Do things
+
+
+*/
+let gegevens;
+
+
+$(document).ready(function () {
+
+    $.ajax({
+        url: 'https://randomuser.me/api/?results=500&seed=foobar',
+        dataType: 'json',
+        success: function (data) {
+          gegevens=data;
+        } 
+    });
+
+});
+
+
+function Name(letter) {
+    let tabel = document.getElementById("example");
+    let tabellengte = tabel.rows.length;
+    let gegevenslengte = gegevens.results.length;
+    // Maak tabel leeg
+    //alert (tabellengte);
+    tabel.innerHTML = "<thead>" + "<tr>" + "<th>Photo</th>" + "<th>Name</th>" + "<th>Email</th>" + "<th>Cell</th>" + "</tr>" + "</thead>" + "<tbody>" + "</tbody>";
+    for ( let i = 1; i < tabellengte; i++ ) {
+      tabel.deleteRow[i];
+    }
+    for ( let i = 0; i < gegevenslengte; i++ ) {
+        let str = gegevens.results[i].name.first;
+        let pos = str.search(letter);
+        //alert (pos);
+        if (pos==0) {
+            let newrow = tabel.insertRow(-1);
+            let cellimg = newrow.insertCell(0); 
+            cellimg.innerHTML = "<IMG SRC='" + gegevens.results[i].picture.medium + "'>";       
+            let cellname = newrow.insertCell(1);
+            cellname.innerHTML = gegevens.results[i].name.first + " " + gegevens.results[i].name.last;
+            let cellemail = newrow.insertCell(2);
+            cellemail.innerHTML = gegevens.results[i].email;
+            let cellcell = newrow.insertCell(3);
+            cellcell.innerHTML = gegevens.results[i].cell;
+        }
+    }
     
-            function plusSlides(delta) {
-                showSlides(slideIndex = slideIndex+delta); 
-            }
-    
-            function showSlides(slidenummer) {
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                if (timer) {
-                    clearTimeout(timer);
-                    timer=0;
-                    --slideIndex;
-                }
-   
-                if (slidenummer > slides.length) {slideIndex = 1}
-                if (slidenummer < 1) {slideIndex = slides.length}
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                slides[slideIndex-1].style.display = "block"; 
-            }
-
-            
-            function autoSlide() {
-                var i=0;
-                var slides = document.getElementsByClassName("mySlides");
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                if(slideIndex > slides.length) {slideIndex = 1}
-                slides[slideIndex-1].style.display = "block"; 
-                slideIndex++;
-                timer = setTimeout(autoSlide,2000)  
-            }
-
-            window.addEventListener('keyup', (e) => {
-                console.log(e.key);
-                if(e.key == "ArrowLeft") {
-                    showSlides(slideIndex += -1)
-                }
-                if(e.key == "ArrowRight") {
-                    showSlides(slideIndex += 1)
-                }
-            });
-
-         function pauze() {
-             if (timer) {
-                 clearTimeout(timer);
-                 timer=0;
-             }
-
-         }
-
-         function play() {
-            if (!timer) {
-             autoSlide();
-            }
-         }
+}
