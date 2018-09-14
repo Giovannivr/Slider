@@ -1,20 +1,4 @@
-/* 
--Get things
-
-button--check data
-div with data of the person
-div with the name and a button of a person
-
--Listen to things
-
-
-
--Do things
-
-
-*/
 let gegevens;
-
 
 $(document).ready(function () {
 
